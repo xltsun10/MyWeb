@@ -1,0 +1,59 @@
+{% extends "pages/base.html" %}
+{% block title %}Home page
+{% endblock title %}
+{% block banner-slider %}
+<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://img.freepik.com/free-psd/banner-bookstore-ad-template_23-2148680419.jpg" class="d-block w-100" alt="..." height='400'>
+      </div>
+      <div class="carousel-item">
+        <img src="https://img.freepik.com/free-psd/banner-bookstore-ad-template_23-2148680419.jpg" class="d-block w-100" alt="..." height='400'>
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.pinimg.com/736x/c5/79/6d/c5796df4f44ea2c26643da920b15d5d7.jpg" class="d-block w-100" alt="..." height='400'>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+{% endblock banner-slider %}
+{% block content %}
+<div id="wrapper">
+    {% comment %} <div class="headline">
+        <br>
+        <h3>List books </h3>
+    </div> {% endcomment %}
+    
+    <div class="products">      
+            {%for book in books%}
+            <div class="product-item">
+                
+                <div class="product-top">
+                    <a href="" class="product-thump">
+                        <img src="{{book.image}}" alt="anh" href="">
+                    </a>
+                    <!-- Mua ngay -->
+                    <a href="/order" class="buy-now">Add to cart</a>
+                </div>
+                <div class="product-infor">
+                    
+                    <a href="" class="product-name">{{book.name}}</a>
+                    <a href="" class="product-author">Tác giả: {{book.}}</a>
+                    <div class="product-price">Giá: {{book.price}}đ</div>
+                </div>
+                
+            </div>
+            {% endfor %}
+           
+    </div>
+</div>
+{% endblock content%}
+{% block order %} {% endblock order %}
+{% block footer %}Footer of home page{% endblock footer %}
