@@ -1,60 +1,69 @@
-{% extends "pages/base.html" %}
-{% block title %}Home page
-{% endblock title %}
-{% block banner-slider %}
+{% extends 'pages/base.html' %}
 {% load static %}
-<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://img.freepik.com/free-psd/banner-bookstore-ad-template_23-2148680419.jpg" class="d-block w-100" alt="..." height='400'>
-      </div>
-      <div class="carousel-item">
-        <img src="https://img.freepik.com/free-psd/banner-bookstore-ad-template_23-2148680419.jpg" class="d-block w-100" alt="..." height='400'>
-      </div>
-      <div class="carousel-item">
-        <img src="https://i.pinimg.com/736x/c5/79/6d/c5796df4f44ea2c26643da920b15d5d7.jpg" class="d-block w-100" alt="..." height='400'>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-{% endblock banner-slider %}
 {% block content %}
-<div id="wrapper">
-    {% comment %} <div class="headline">
-        <br>
-        <h3>List books </h3>
-    </div> {% endcomment %}
-    
-    <div class="products">      
-            {%for book in books%}
-            <div class="product-item">
-                
-                <div class="product-top">
-                    <a href="" class="product-thump">
-                        <img src="{{book.image.url}}" alt="anh" href="">
-                    </a>
-                    <!-- Mua ngay -->
-                    <a data-book = {{book.id}} data-action ="add" href="/order" class="buy-now">Add to cart</a>
-                </div>
-                <div class="product-infor">
-                    
-                    <a href="" class="product-name">{{book.name}} </a>
-                    <a href="" class="product-author">Tác giả: {{book.author}}   </a>
-                    <div class="product-price">Giá: {{book.price}}đ</div>
-                </div>
-                
-            </div>
-            {% endfor %}
-           
-    </div>
-</div>
-{% endblock content%}
-{% block order %} {% endblock order %}
-{% block footer %}Footer of home page{% endblock footer %}
+     <div class="row" style="width:100%">
+		<div class="col-lg-6">
+			<div class="box-element" id="form-wrapper">
+				<form id="form">
+					<div id="user-info">
+						<div class="form-field">
+							<input required class="form-control" type="text" name="name" placeholder="Name..">
+						</div>
+						<div class="form-field">
+							<input required class="form-control" type="email" name="email" placeholder="Email..">
+						</div>
+					</div>
+					
+					<div id="shipping-info">
+						<hr>
+						<p>Shipping Information:</p>
+						<hr>
+						<div class="form-field">
+							<input class="form-control" type="text" name="address" placeholder="Address..">
+						</div>
+						<div class="form-field">
+							<input class="form-control" type="text" name="city" placeholder="City..">
+						</div>
+						<div class="form-field">
+							<input class="form-control" type="text" name="state" placeholder="State..">
+						</div>
+						<div class="form-field">
+							<input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
+						</div>
+						<div class="form-field">
+							<input class="form-control" type="text" name="country" placeholder="Zip code..">
+						</div>
+					</div>
+
+					<hr>
+					<input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+				</form>
+			</div>
+
+			<br>
+			<div class="box-element hidden" id="payment-info">
+				<small>Paypal Options</small>
+			</div>
+			
+		</div>
+
+		<div class="col-lg-6">
+			<div class="box-element">
+				<a  class="btn btn-outline-dark" href="/order">&#x2190; Back to Cart</a>
+				<hr>
+				<h3>Order Summary</h3>
+				<hr>
+				{% for item in items  %}
+				<div class="cart-row">
+					<div style="flex:2"><img class="row-image" src="{{item.book.ImageURL}}"></div>
+					<div style="flex:2"><p>{{item.book.name}}</p></div>
+					<div style="flex:1"><p>{{item.book.price}}</p></div>
+					<div style="flex:1"><p>{{item.quantity}}</p></div>
+				</div>
+				{% endfor %}
+				<h5>Items:   {{order.get_cart_items}}</h5>
+				<h5>Total:   {{order.get_cart_total}}</h5>
+			</div>
+		</div>
+	</div>
+{% endblock content %} 
