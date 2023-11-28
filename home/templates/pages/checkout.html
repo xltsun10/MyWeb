@@ -1,6 +1,8 @@
 {% extends 'pages/base.html' %}
+{% block title %}Checkout page
+{% endblock title %}
 {% load static %}
-{% block content %}
+{% block checkout %}
      <div class="row" style="width:100%">
 		<div class="col-lg-6">
 			<div class="box-element" id="form-wrapper">
@@ -27,12 +29,12 @@
 						<div class="form-field">
 							<input class="form-control" type="text" name="state" placeholder="State..">
 						</div>
-						<div class="form-field">
+						{% comment %} <div class="form-field">
 							<input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
 						</div>
 						<div class="form-field">
 							<input class="form-control" type="text" name="country" placeholder="Zip code..">
-						</div>
+						</div> {% endcomment %}
 					</div>
 
 					<hr>
@@ -66,4 +68,4 @@
 			</div>
 		</div>
 	</div>
-{% endblock content %} 
+{% endblock checkout %} 
