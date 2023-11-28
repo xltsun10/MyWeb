@@ -49,6 +49,5 @@ virtualenv          20.24.6
 1. **venv/**: Môi trường ảo để  project chạy
 2. **requirements.txt**: Thông tin các gói thư viện được cài đặt trong venv
 3. **home/**: app chính của prj - nơi điều hướng/cài đặt các thứ liên quan 
-4. **main/templates/**: Nơi để chung các component xác định sẽ được dùng 
-5. ... 
+4. ... 
 
