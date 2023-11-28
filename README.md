@@ -27,13 +27,10 @@ virtualenv          20.24.6
 
 ## Thông tin cấu hình
 1. Các thư viện được cài đặt: Trong file requirement.txt
-    1.1. Nếu tải mới 1 thư viện thì cần cập nhật file trên bằng cách chạy
-        câu lệnh: 
-        ```$ pip freeze > requirements.txt (Chạy xong nhớ tạo commit)```
-    1.2. Nếu cần cài đặt các thư viện có trong file requirements.txt, chạy
+    Để cài đặt các thư viện có trong file requirements.txt, chạy
         câu lệnh: ```$ pip install -r requirements.txt```
 2. DB dùng sẽ là SQLite - có sẵn trong django (tải extension để xem file "db.sqlite3" trên vscode)
-3. Đổi cổng mặc định của django: Thêm số cổng sau câu lệnh 1.
+3. Đổi cổng mặc định của django(nếu lỗi inuse port): Thêm số cổng sau câu lệnh 1.
         ```$ py manage.py runserver <port>```
         vd: ```$ py manage.py runserver 8080```
 
@@ -43,7 +40,7 @@ virtualenv          20.24.6
 3. ```$ py manage.py migrate``` (Thực thi các câu lệnh sql trên)
 
 ## Tài khoản để test:
-1 Tài khaonr admin đăng nhập http://127.0.0.1:8000/admin/ : admin|141010
+1 Tài khoản admin đăng nhập http://127.0.0.1:8000/admin/ : admin|141010
 2. User:nhat002|Nhat1234@ hoặc đăng kí tài khoản mới để sử dụng
 
 
