@@ -7,7 +7,7 @@ for (i=0; i<updateBtns.length; i++){
         console.log('bookId', bookId, 'action', action)
         console.log('User: ', user)
         if(user==="AnonymousUser"){
-            console.log('user not login')
+            console.log('User not login')
         }else {
             updateUserOrder(bookId, action)
         }
@@ -15,22 +15,21 @@ for (i=0; i<updateBtns.length; i++){
 }
 
 function updateUserOrder(bookId, action) {
-    console.log('user login, successfully added')
+    console.log('User login, sending data')
     var url = '/update_item/'
     fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'X-CSRFToken' : csrftoken,
+            'X-CSRFToken' : csrftoken
         },
-        body: JSON.stringify({'bookId': bookId, 'action': action})
+        body:JSON.stringify({'bookId':bookId,'action':action})
     })
     .then((response) => {
-        return response.json();
-        console.log('json: ', response.json())     
+        return response.json()
     })
     .then((data) => {
-        console.log('data', data)        
+        console.log('Data:', data)        
     })
     
 }
