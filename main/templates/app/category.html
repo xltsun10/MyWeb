@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% block title %}Search Page
+{% endblock title %}
+{% load static %}
+{% block search %} 
+<div id="wrapper">
+     {% comment %} <div class="headline">
+         <br>
+         <h3>List books </h3>
+     </div> {% endcomment %}
+     
+     <div class="products">      
+             {%for book in books%}
+             <div class="product-item">
+                 
+                 <div class="product-top">
+                     <a href="" class="product-thump">
+                         <img src="{{book.image.url}}" alt="anh" href="">
+                     </a>
+                     <!-- Mua ngay -->
+                     <a data-book = {{book.id}} data-action ="add"  id="addItem" class="buy-now">Add to cart</a>
+                 </div>
+                 <div class="product-infor">
+                     
+                     <a href="" class="product-name">{{book.name}} </a>
+                     <a href="" class="product-author">Tác giả: {{book.author}}   </a>
+                     <div class="product-price">Giá: {{book.price}}đ</div>
+                 </div>
+                 
+             </div>
+             {% endfor %}
+            
+     </div>
+ </div>
+{% endblock search %} 

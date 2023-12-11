@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Shop</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            text-align: center;
+        }
+        
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .btn {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+        .signup-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Đăng nhập</h2>
+        
+        <form action="login" method="POST">
+            {% csrf_token %}
+            <label for="username">Tên đăng nhập:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" required>
+            {% for message in messages %}
+                <p>Sai ten tai khoan hoac mat khau</p>
+            {% endfor %}
+            <input type="submit" value="Đăng nhập" class="btn" >
+            
+            
+        </form>
+        <div class="signup-link">
+            <p>Bạn chưa có tài khoản? <a href="/register">Đăng kí ngay</a></p>
+        </div>
+    </div>
+</body>
+</html>
